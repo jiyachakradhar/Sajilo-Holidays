@@ -1,0 +1,442 @@
+/* ==========================================================================
+   Sajilo Holidays — Inquiry form
+   Shares the tour page's palette and type so the two pages read as one site.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #fbfaf6;
+  --sand: #f4f3ee;
+  --paper: #fffefa;
+  --navy: #0b121c;
+
+  --ink: #222220;
+  --muted: #6f6c63;
+  --faint: #9a9790;
+  --line: #e8e6dd;
+  --line-soft: #f0efe8;
+
+  --orange: #ff8800;
+  --orange-dark: #e97b00;
+  --orange-tint: #fff4e8;
+
+  --good: #1f8a4c;
+  --bad: #c93b2e;
+
+  --display: "Instrument Serif", Georgia, serif;
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --gutter: 7vw;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============ NAVBAR ============ */
+.navbar {
+  height: 74px;
+  padding: 0 var(--gutter);
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 136, 0, 0.45);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 54px;
+  height: auto;
+}
+
+.logo strong {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.logo small {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 0.93rem;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.78);
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--orange);
+  transition: right 0.28s ease;
+}
+
+nav a:hover::after {
+  right: 0;
+}
+
+.nav-button {
+  background: var(--orange);
+  color: #fff !important;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.nav-button::after {
+  display: none;
+}
+
+.nav-button:hover {
+  background: var(--orange-dark);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 6px 8px;
+}
+
+/* ============ INQUIRY SECTION ============ */
+main {
+  padding-top: 74px;
+}
+
+.inquiry-section {
+  padding: clamp(56px, 8vw, 96px) var(--gutter) clamp(80px, 9vw, 120px);
+}
+
+.inquiry-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--orange);
+  flex: none;
+}
+
+.inquiry-heading {
+  position: sticky;
+  top: 106px;
+}
+
+.inquiry-heading h1 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 3.6vw, 2.9rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 12ch;
+  margin-bottom: 18px;
+}
+
+.inquiry-heading > p {
+  color: var(--muted);
+  max-width: 42ch;
+  margin-bottom: 40px;
+}
+
+.inquiry-meta {
+  display: grid;
+  gap: 20px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.inquiry-meta dt {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 3px;
+}
+
+.inquiry-meta dd {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ============ FORM CARD ============ */
+.inquiry-form {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--orange);
+  padding: clamp(28px, 4vw, 44px);
+  display: grid;
+  gap: 22px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 13px 15px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--faint);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: #d8d3c6;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: var(--paper);
+  box-shadow: 0 0 0 3px var(--orange-tint);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* date/number inputs render a native icon; keep it from crowding the edge */
+.form-group input[type="date"],
+.form-group input[type="number"] {
+  padding-right: 10px;
+}
+
+.submit-btn {
+  justify-self: start;
+  margin-top: 4px;
+  background: var(--orange);
+  color: #fff;
+  padding: 15px 36px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.result {
+  font-size: 0.92rem;
+  font-weight: 500;
+  min-height: 1.3em;
+}
+
+.result.success {
+  color: var(--good);
+}
+
+.result.error {
+  color: var(--bad);
+}
+
+/* ============ FOOTER ============ */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  padding: 26px var(--gutter);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 960px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  #mainNav {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--navy);
+    padding: 8px var(--gutter) 22px;
+    border-bottom: 1px solid rgba(255, 136, 0, 0.45);
+  }
+
+  #mainNav.open,
+  #mainNav.show,
+  #mainNav.active,
+  #mainNav[data-open="true"] {
+    display: flex;
+  }
+
+  #mainNav a {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  #mainNav a::after {
+    display: none;
+  }
+
+  .nav-button {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .inquiry-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .inquiry-heading {
+    position: static;
+  }
+
+  .inquiry-heading h1 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo small {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
