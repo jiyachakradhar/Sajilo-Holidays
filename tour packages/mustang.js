@@ -4,7 +4,7 @@ document.getElementById("menuToggle")?.addEventListener("click", () => {
   nav.style.display = nav.style.display === "flex" ? "none" : "flex";
 });
 
-// Gallery slideshow — auto-advance every 2s, swipeable
+// Gallery slideshow
 (function () {
   const slider = document.getElementById("highlightSlider");
   if (!slider) return;
