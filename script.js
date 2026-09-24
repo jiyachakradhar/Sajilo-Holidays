@@ -136,7 +136,7 @@ function startTourAutoScroll() {
         tourContainer.style.scrollBehavior = "smooth";
       }
     }, 700);
-  }, 2500);
+  }, 4000);
 }
 
 // ======================================
@@ -173,7 +173,7 @@ function startTrekAutoScroll() {
         trekContainer.style.scrollBehavior = "smooth";
       }
     }, 700);
-  }, 2500);
+  }, 7000);
 }
 startTourAutoScroll();
 startTrekAutoScroll();
